@@ -7,6 +7,7 @@ so go to `/usr/local/bin` and typing `cd /usr/local/bin` into the terminal.
 then,make the file "sortf" by typing `nano sortf` into taht directory.
 then, open up the file "sortf" i gave you,to do this go into the terminal
 type `cd (path to where you saved this download)`this will put you in the correct directory,
+
 step 2)copy and paste.
 
 then open up the original "sortf" file by typing `nano sortf` into the terminal.
@@ -15,13 +16,13 @@ then,the type `nano sortf` to open up your own file,then Copy and Paste the code
 then press "Ctrl O" to write the stuff into that file,then press "Ctrl X" to exit the file 
 (please dont forget to comfrim the changes into the file)
 
-Step 4) Make it an executable.
+Step 3) Make it an executable.
 
 you can aciheve this by going into the `/usr/local/bin` by typing `cd /usr/local/bin` into the terminal,then,
 type `chmod +x "sortf"` into the terminal and press Enter. Now its a Executable and yoru good to go!
 just Reboot linux and tahts it with the intallation.
 
-Step 5) How to use?
+Step 4) How to use?
 
 
 `sudo listf` is out key command,now its out first Prefix time"
