@@ -20,7 +20,8 @@ Step 3) Make it an executable.
 
 you can aciheve this by going into the `/usr/local/bin` by typing `cd /usr/local/bin` into the terminal,then,
 type `chmod +x "sortf"` into the terminal and press Enter. Now its a Executable and yoru good to go!
-just Reboot linux and tahts it with the intallation.
+
+just dont forget to Reboot linux and tahts it with the intallation.
 
 Step 4) How to use?
 
