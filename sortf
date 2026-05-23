@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Default values
+TYPE="all"
+BLOCK_SIZE="human"
+
+# Parse Flags
+while getopts "ifkmg" opt; do
+  case $opt in
+    i) TYPE="file" ;;
+    f) TYPE="folder" ;;
+    k) BLOCK_SIZE="1K" ;;
+    m) BLOCK_SIZE="1M" ;;
+    g) BLOCK_SIZE="1G" ;;
+    *) echo "Usage: sortf [-i|-f] [-k|-m|-g] [path]"; exit 1 ;;
+  esac
+done
+
+# Shift the flags away so $1 becomes the path
+shift $((OPTIND-1))
+TARGET_DIR=${1:-.}
+
+# Build the command based on Type
+if [ "$TYPE" == "file" ]; then
+    # Find files only, max depth 1
+    CMD="find \"$TARGET_DIR\" -maxdepth 1 -type f -exec du -h --block-size=$BLOCK_SIZE {} +"
+elif [ "$TYPE" == "folder" ]; then
+    # Folders only, depth 1
+    CMD="du -h --block-size=$BLOCK_SIZE -d 1 \"$TARGET_DIR\""
+else
+    # Everything
+    CMD="du -h --block-size=$BLOCK_SIZE -d 1 \"$TARGET_DIR\""
+fi
+
+# Execute and Sort
+# We use 'LC_ALL=C' and 'sort -h' to ensure the decimals and units sort correctly
+eval $CMD | sort -h
